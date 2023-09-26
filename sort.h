@@ -4,9 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Comparison direction macros for bitonic sort */
-#define UP 0
-#define DOWN 1
+
 
 /**
  * enum bool - Enumeration of Boolean values.
@@ -42,7 +40,7 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void swap_ints(int *a, int *b);
-void swap_nodes(listint_t **h, listint_t **n1, listint_t *n2);
+void shell_sort(int *array, size_t size);
+
 
 #endif /* SORT_H */
