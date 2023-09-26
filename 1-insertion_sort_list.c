@@ -1,5 +1,7 @@
 #include "sort.h"
 
+
+
 /**
  * insertion_sort_list - Sorts a doubly linked list of integers
  *                       using the insertion sort algorithm.
@@ -9,18 +11,18 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *param_l, *tmp_l, *track_i;
+	listint_t *iter, *insert, *tmp;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
-	for (track_i = (*list)->next; track_i != NULL; track_i = tmp_l)
+	for (iter = (*list)->next; iter != NULL; iter = tmp)
 	{
-		tmp_l = track_i->next;
-		param_l = track_i->prev;
-		while (param_l != NULL && track_i->n < param_l->n)
+		tmp = iter->next;
+		insert = iter->prev;
+		while (insert != NULL && iter->n < insert->n)
 		{
-			swap_nodes(list, &param_l, track_i);
+			swap_nodes(list, &insert, iter);
 			print_list((const listint_t *)*list);
 		}
 	}

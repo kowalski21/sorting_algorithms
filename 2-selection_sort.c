@@ -1,6 +1,5 @@
 #include "sort.h"
 
-
 /**
  * selection_sort - Sort an array of integers in ascending order
  *                  using the selection sort algorithm.
@@ -11,21 +10,21 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	int *tracker;
-	size_t inner_count, outer_count;
+	int *min;
+	size_t i, j;
 
 	if (array == NULL || size < 2)
 		return;
 
-	for (inner_count = 0; inner_count < size - 1; inner_count++)
+	for (i = 0; i < size - 1; i++)
 	{
-		tracker = array + inner_count;
-		for (outer_count = inner_count + 1; outer_count < size; outer_count++)
-			tracker = (array[outer_count] < *tracker) ? (array + outer_count) : tracker;
+		min = array + i;
+		for (j = i + 1; j < size; j++)
+			min = (array[j] < *min) ? (array + j) : min;
 
-		if ((array + inner_count) != tracker)
+		if ((array + i) != min)
 		{
-			swap_array_ints(array + inner_count, tracker);
+			swap_ints(array + i, min);
 			print_array(array, size);
 		}
 	}
