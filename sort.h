@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Comparison direction macros for bitonic sort */
-#define UP 0
-#define DOWN 1
 
 /**
  * enum bool - Enumeration of Boolean values.
@@ -37,11 +34,17 @@ typedef struct listint_s
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
+/* Helpers*/
+void swap_array_ints(int *ptr_a, int *ptr_b);
+void swap_nodes(listint_t **h, listint_t **n_node, listint_t *t_node);
+
+int custom_lumoto_part(size_t size, int left, int right, int *array);
+void recur_lumosort(size_t size, int left, int right, int *array);
+
 /* Sorting algoritms */
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-
 
 #endif /* SORT_H */
